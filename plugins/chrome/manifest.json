@@ -1,11 +1,18 @@
 {
-  "name": "Getting Started Example",
+  "name": "Watch Love Island Without Ads",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "description": "Please don't tell DPG Media.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "declarativeContent",
+    "declarativeWebRequest",
+    "webRequest",
+    "*://*/*"
+  ],
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "page_action": {
     "default_popup": "popup.html",
