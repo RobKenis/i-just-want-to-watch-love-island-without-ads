@@ -1,15 +1,7 @@
-let changeColor = document.getElementById('changeColor');
+let openVideo = document.getElementById('openVideo');
 
-chrome.storage.sync.get('color', function(data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-});
-
-changeColor.onclick = function(element) {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.executeScript(
-            tabs[0].id,
-            {code: 'document.body.style.backgroundColor = "' + color + '";'});
+openVideo.onclick = function(element) {
+    chrome.storage.local.get('lastVideo', function(data) {
+        window.open(data['lastVideo'], '_blank');
     });
 };
